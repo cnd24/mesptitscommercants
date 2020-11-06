@@ -8,10 +8,16 @@
         {% endblock %}
     </head>
     <body>
+        {% block header %}
+            {% include '/include/_navbar.html.twig' %}
+        {% endblock %}
         {% block body %}
             <p>
                 hello
             </p>
+        {% endblock %}
+        {% block footer %}
+            {% include '/include/_footer.html.twig' %}
         {% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}

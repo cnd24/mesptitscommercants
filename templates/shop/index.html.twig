@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ShopController!{% endblock %}
+
+{% block body %}
+
+<div>
+    <h1>Liste des boutiques</h1>
+    {% for shop in shops %}
+    <div class="card">
+        <div class="card-body">Nom de la boutique : {{ shop.name }}</div>
+    </div>
+
+    {% endfor %}
+
+</div>
+{% endblock %}
