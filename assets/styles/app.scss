@@ -1,0 +1,18 @@
+@import "~bootstrap/scss/bootstrap";
+@import "vars";
+@import "home";
+
+
+@font-face{
+  font-family: turbinado;
+  src: url('../font/turbinado/Turbinado.otf') format("opentype");
+}
+
+*{
+  background-color: $light-color;
+}
+
+h1 {
+  font-family: turbinado, serif;
+  color: $primary-color;
+}
