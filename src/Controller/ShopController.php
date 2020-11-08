@@ -16,12 +16,14 @@ class ShopController extends AbstractController
     /**
      * @Route("/", name="shop", methods={"GET"})
      */
-    public function index(ShopRepository $shopRepository, GeoApi $geoApi): Response
+    public function index(ShopRepository $shopRepository): Response
     {
 
         //$geoApi->getCity();
+        $shops = $shopRepository->findAll();
+
         return $this->render('shop/index.html.twig', [
-            'shops' => $shopRepository->findAll(),
+            'shops' => $shops,
         ]);
     }
 }

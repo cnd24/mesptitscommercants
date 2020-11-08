@@ -18,6 +18,7 @@ class ShopFixtures extends Fixture
             $shop->setName($faker->company);
             $shop->setPhoneNumber($faker->phoneNumber);
             $shop->setAdress($faker->address);
+            $shop->addShopCategory($this->getReference('category_shop'.rand(0, count(CategoryShopFixtures::CATEGORY_SHOP)-1)));
             $manager->persist($shop);
         }
 
