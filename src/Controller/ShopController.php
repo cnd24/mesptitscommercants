@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ShopController extends AbstractController
 {
     /**
-     * @Route("/", name="shop_index", methods={"GET"})
+     * @Route("/", name="shop", methods={"GET"})
      */
     public function index(ShopRepository $shopRepository, GeoApi $geoApi): Response
     {

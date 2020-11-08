@@ -1,0 +1,44 @@
+body {
+  background-color: $light-color;
+}
+
+h1, h2 {
+  font-family: turbinado, serif;
+  color: $primary-color;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+.color-light {
+  color: $light-color;
+}
+
+.color-primary {
+  color: $primary-color;
+}
+
+.btn-get-started {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 32px;
+  border-radius: 50px;
+  color: $light-color;
+  background: $third-color;
+  transform: scale(1);
+  transition: transform 400ms;
+
+  &:hover {
+    color: $light-color;
+    text-decoration: none;
+    transform: scale(0.90);
+  }
+
+}
