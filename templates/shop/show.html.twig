@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La boutique {{ shop.name }}{% endblock %}
+
+{% block body %}
+
+<div>
+    <h1 class="text-center mb-2">{{ shop.name }}</h1>
+    <p class="text-center font-italic color-primary">{{ shop.adress }}</p>
+</div>
+{% endblock %}
