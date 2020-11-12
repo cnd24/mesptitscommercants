@@ -39,6 +39,11 @@ class Shop
      */
     private $shopCategories;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture;
+
     public function __construct()
     {
         $this->shopCategories = new ArrayCollection();
@@ -108,6 +113,18 @@ class Shop
         if ($this->shopCategories->removeElement($shopCategory)) {
             $shopCategory->removeShop($this);
         }
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }
