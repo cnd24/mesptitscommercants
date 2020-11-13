@@ -1,0 +1,72 @@
+.body-section {
+  z-index: 99;
+}
+
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  color: $primary-color;
+}
+
+.color-light {
+  color: $light-color;
+}
+
+.color-primary {
+  color: $primary-color;
+}
+
+.color-secondary {
+  color: $secondary-color
+}
+
+.color-third {
+  color: $third-color;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.card {
+  border: none;
+  background-color: transparent;
+}
+
+img.img-card {
+  object-fit: cover;
+  height: 100%;
+  border-radius: 2rem;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+.main {
+  position: relative;
+  z-index: 99;
+}
+
+
+
+.btn-get-started {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 32px;
+  border-radius: 50px;
+  color: white;
+  background: $secondary-color;
+  transform: scale(1);
+  transition: transform 200ms;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+    transform: scale(0.95);
+  }
+}
+
+

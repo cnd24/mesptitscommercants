@@ -1,5 +1,25 @@
-//colorcafe469
-$primary-color: #2EB1AB;
-$secondary-color: #B1E1DF;
-$third-color: #FFBA52;
-$light-color: #f8f8f1;
+$primary-color: #130f49; //darkblue
+$secondary-color: #0C87D7; //mediumblue
+$third-color: #D9F4FF; //lightblue
+$light-color: #feefd8; //beige
+
+
+.color-light {
+  color: $light-color;
+}
+
+.color-primary {
+  color: $primary-color;
+}
+
+.color-secondary {
+  color: $secondary-color
+}
+
+.color-third {
+  color: $third-color;
+}
+
+.handwritting-text {
+  font-family: 'Turbinado', sans-serif;
+}
