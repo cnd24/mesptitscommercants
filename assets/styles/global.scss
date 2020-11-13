@@ -1,18 +1,11 @@
-body {
-  background-color: $light-color;
+.body-section {
+  z-index: 99;
 }
 
 h1, h2 {
-  font-family: turbinado, serif;
-  color: $primary-color;
-}
-
-h1 {
-  font-size: 4rem;
-}
-
-h2 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 3rem;
+  color: $primary-color;
 }
 
 .color-light {
@@ -23,17 +16,36 @@ h2 {
   color: $primary-color;
 }
 
+.color-secondary {
+  color: $secondary-color
+}
+
+.color-third {
+  color: $third-color;
+}
+
 a:hover {
   text-decoration: none;
 }
 
-.card:hover {
-  transform: scale(0.95);
+.card {
+  border: none;
+  background-color: transparent;
 }
 
 img.img-card {
   object-fit: cover;
   height: 100%;
+  border-radius: 2rem;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+.main {
+  position: relative;
+  z-index: 99;
 }
 
 
@@ -45,14 +57,16 @@ img.img-card {
   display: inline-block;
   padding: 8px 32px;
   border-radius: 50px;
-  color: $light-color;
-  background: $third-color;
+  color: white;
+  background: $secondary-color;
   transform: scale(1);
-  transition: transform 400ms;
+  transition: transform 200ms;
 
   &:hover {
-    color: $light-color;
+    color: white;
     text-decoration: none;
-    transform: scale(0.90);
+    transform: scale(0.95);
   }
 }
+
+

@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -11,10 +13,20 @@
         {% block header %}
             {% include '/include/_navbar.html.twig' %}
         {% endblock %}
+        <div>
+            <svg width="600" height="600" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob-svg">
+                <path d="m27.132 51.54s-18.394 14.826-17.656 31.473c0.73803 16.647 8.898 28.972 25.143 52.707 16.245 23.735 4.6391 48.464 23.67 59.112 19.031 10.648 45.979-13.278 58.362-15.929 12.383-2.6504 35.379-0.68072 51.545 6.4734 16.166 7.1541 42.644-12.303 28.194-28.605-14.45-16.303-39.231-32.774-42.168-63.618-2.937-30.844-16.37-75.184-53.183-63.726-36.813 11.459-54.003 5.0742-73.907 22.112z" fill="#d9f4ff"/>
+            </svg>
+        </div>
+        <div>
+            <svg width="600" height="600" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob2-svg">
+                <path d="m27.132 51.54s-18.394 14.826-17.656 31.473c0.73803 16.647 8.898 28.972 25.143 52.707 16.245 23.735 4.6391 48.464 23.67 59.112 19.031 10.648 45.979-13.278 58.362-15.929 12.383-2.6504 35.379-0.68072 51.545 6.4734 16.166 7.1541 42.644-12.303 28.194-28.605-14.45-16.303-39.231-32.774-42.168-63.618-2.937-30.844-16.37-75.184-53.183-63.726-36.813 11.459-54.003 5.0742-73.907 22.112z" fill="#feefd8"/>
+            </svg>
+        </div>
         {% block body %}
-            <p>
-                hello
-            </p>
+            <div class="body-section">
+            </div>
+
         {% endblock %}
         {% block footer %}
             {% include '/include/_footer.html.twig' %}

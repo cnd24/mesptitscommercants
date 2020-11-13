@@ -4,21 +4,23 @@
 
 {% block body %}
 
-<div>
-    <h1 class="text-center mb-4">Liste des boutiques</h1>
+<div class="main">
+    <h2 class="text-center m-5">Liste des boutiques</h2>
         <div class="container">
             <div class="row">
-
                 {% for shop in shops %}
-                    <div class="d-flex justify-content-center col-12 col-sm-12 col-md-6 col-xl-4 mb-5" style="height: 50vh">
+                    <div class="d-flex justify-content-center col-12 col-sm-12 col-md-6 col-xl-4 mb-5" style="height: 40vh">
                             <div class="card mh-30">
                                 <div class="h-50">
-                                    <img src="{{ shop.picture }}" class="img-card card-img-top mh-100" alt="Photo de la boutique">
+                                    <a href="{{ path('shop_show', {'id': shop.id}) }}">
+                                        <img src="{{ shop.picture }}" class="img-card card-img-top mh-100" alt="Photo de la boutique">
+                                    </a>
                                 </div>
-                                <div class="card-body">
-                                    <p class="card-text color-primary font-weight-bold">{{ shop.name }}</p>
+
+                                <div class="card-body text-center">
+                                    <p class="card-text font-weight-bold color-primary mb-1">{{ shop.name }}</p>
                                     {% for category in shop.shopCategories %}
-                                    <p class="card-text">{{ category.name }}</p>
+                                        <p class="card-text color-primary">{{ category.name }}</p>
                                     {% endfor %}
                                 </div>
                             </div>

@@ -1,14 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Bienvenue chez Mes Ptits commerçants{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    <h1 class="text-center">Bienvenue</h1>
-    <h2 class="text-center">chez vos ptits commerçants</h2>
+<div class="main">
+    <div class="container d-flex flex-column">
+        <h2 class="text-center">Choisissez,</h2>
+        <h2 class="text-center">réservez en ligne,</h2>
+        <h2 class="text-center line-title"><span>retirez au drive</span></h2>
+    </div>
 
-    <div class="text-center">
-        <a href="{{ path('shop') }}" class="btn-get-started m-2">Commerçants à proximité</a>
+
+    <div class="text-center mt-5">
+        <a href="{{ path('shop') }}" class="btn-get-started mx-3">Commerçants à proximité</a>
         <a href="#" class="btn-get-started m-2">Ouvrir mon commerce en ligne</a>
     </div>
 </div>

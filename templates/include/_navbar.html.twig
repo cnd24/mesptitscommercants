@@ -1,15 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-nav">
-    <a class="navbar-brand mx-3 my-2" href="#"><h2 class="color-light">Mes Ptits commerçants</h2></a>
+    <a class="navbar-brand mx-3 my-2" href="{{ path('home') }}"><h1 class="color-primary handwritting-text">Mes Ptits commerçants</h1></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-link active color-light" href="#">Ouvrir ma boutique<span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="#">Les p'tits commerçants</a>
+            <a class="nav-link" href="{{ path('shop') }}">Les Ptits commerçants</a>
         </div>
     </div>
 </nav>
-<div>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150"><path fill="#2EB1AB" fill-opacity="1" d="M 0 30 L 95 64 C 200 100 290 83 460 49 C 661 10 796 37 962 91 C 1204 157 1280 139 1360 117.3 L 1440 96 L 1440 0 L 0 0 Z"></path></svg>
-</div>
