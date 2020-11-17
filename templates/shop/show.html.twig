@@ -10,26 +10,18 @@
     <p class="text-center font-italic color-primary">{{ shop.adress }}</p>
 </div>
 
-    <div class="container">
-        <div class="row">
-            {{ dump(products) }}
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 justify-content-between">
             {% for product in products %}
-                <div class="d-flex justify-content-center col-12 col-sm-12 col-md-6 col-xl-4 mb-5" style="height: 40vh">
-                    <div class="card mh-30">
-                        <div class="h-50">
-{#                            <a href="{{ path('#') }}">#}
-                                <img src="{{ product.picture }}" class="img-card card-img-top mh-100" alt="Photo de la boutique">
-{#                            </a>#}
-                        </div>
-
-                        <div class="card-body text-center">
-                            <p class="card-text font-weight-bold color-primary mb-1">{{ product.name }}</p>
-                            <p class="card-text color-primary">{{ product.price }}</p>
-                        </div>
-                    </div>
+            <div class="card m-3">
+                <img src="{{ product.picture }}" class="card-img-top" alt="Photo du produit">
+                <div class="card-body px-0">
+                    <p class="card-title text">{{ product.name }}</p>
+                    <p class="card-text font-weight-bold text-center">{{ product.price }}€</p>
+{#                    <p class="card-text"><small class="text-muted">{{ product.price }} €</small></p>#}
                 </div>
+            </div>
             {% endfor %}
-
         </div>
     </div>
 

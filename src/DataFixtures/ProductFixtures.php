@@ -31,6 +31,7 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
             $product = new Product();
             $product->setPicture(self::FACTICE_IMAGES[rand(0, count(self::FACTICE_IMAGES)-1)]);
             $product->setName($faker->sentence(6, true));
+            $product->setDescription($faker->sentence());
             $product->setPrice(rand(10,50));
             $product->setShop($this->getReference('shop'.rand(1,50)));
             $manager->persist($product);
