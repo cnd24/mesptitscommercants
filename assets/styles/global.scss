@@ -1,5 +1,6 @@
 .body-section {
-  z-index: 99;
+  position: relative;
+  z-index: 999;
 }
 
 h1, h2 {
@@ -7,6 +8,7 @@ h1, h2 {
   font-size: 3rem;
   color: $primary-color;
 }
+
 
 .color-light {
   color: $light-color;

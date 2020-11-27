@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}La boutique {{ shop.name }}{% endblock %}
+{% block title %}{{ shop.name }}{% endblock %}
 
 {% block body %}
 
@@ -9,6 +9,20 @@
     <h2 class="text-center mb-2">{{ shop.name }}</h2>
     <p class="text-center font-italic color-primary">{{ shop.adress }}</p>
 </div>
+
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 justify-content-between">
+            {% for product in products %}
+            <div class="card m-3">
+                <img src="{{ product.picture }}" class="card-img-top" alt="Photo du produit">
+                <div class="card-body px-0">
+                    <p class="card-title text">{{ product.name }}</p>
+                    <p class="card-text font-weight-bold text-center">{{ product.price }}€</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 
 
 

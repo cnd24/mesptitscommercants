@@ -10,7 +10,6 @@ class CategoryShopFixtures extends Fixture
 {
     const CATEGORY_SHOP=[
         'Décoration',
-        'Epicerie',
         'Fleuriste',
         'Librairie',
         'Habillement',

@@ -44,9 +44,15 @@ class Shop
      */
     private $picture;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="shop", orphanRemoval=true)
+     */
+    private $products;
+
     public function __construct()
     {
         $this->shopCategories = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -125,6 +131,36 @@ class Shop
     public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->setShop($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Product $product): self
+    {
+        if ($this->products->removeElement($product)) {
+            // set the owning side to null (unless already changed)
+            if ($product->getShop() === $this) {
+                $product->setShop(null);
+            }
+        }
 
         return $this;
     }

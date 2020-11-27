@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Shop;
+use App\Repository\ProductRepository;
 use App\Repository\ShopRepository;
 use App\Services\GeoApi;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,10 +31,11 @@ class ShopController extends AbstractController
     /**
      * @Route("/{id}", name="shop_show", methods={"GET"})
      */
-    public function show(Shop $shop): Response
+    public function show(Shop $shop, ProductRepository $productRepository): Response
     {
         return $this->render('shop/show.html.twig', [
             'shop' => $shop,
+            'products' => $productRepository->findBy(['shop' => $shop->getId()]),
         ]);
     }
 
