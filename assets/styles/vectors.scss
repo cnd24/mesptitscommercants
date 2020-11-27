@@ -1,0 +1,8 @@
+svg.plus_sign_svg {
+  fill: $secondary-color;
+
+  &:hover {
+    transform: rotate(360deg);
+    transition: transform 800ms;
+  }
+}
