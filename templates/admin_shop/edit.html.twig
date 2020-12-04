@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration - Editer{% endblock %}
+
+{% block body %}
+
+    <div class="main">
+        <h2 class="text-center m-5">Modification du commerce {{ shop.name }}</h2>
+        <div class="container">
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-6">{{ form_row(form.name) }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">{{ form_row(form.adress) }}</div>
+                <div class="col-md-6">{{ form_row(form.phoneNumber) }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">{{ form_row(form.picture) }}</div>
+            </div>
+            {{ form_widget(form) }}
+            <a href="">Sauvegarder</a>
+            {{ form_end(form) }}
+        </div>
+
+
+
+    </div>
+{% endblock %}

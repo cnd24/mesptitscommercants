@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration - Liste des commerçants{% endblock %}
+
+{% block body %}
+
+    <div class="main">
+        <h2 class="text-center m-5">Gérer la liste des commerçants</h2>
+        <div class="container">
+            <div class="row">
+
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Date de création</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for shop in shops %}
+                            <tr>
+                                <th>{{ shop.id }}</th>
+                                <td>{{ shop.name }}</td>
+                                <td>{{ shop.createdAt | date("d/m/yy")}}</td>
+                                <td><a href="{{ path('admin_shop_edit', {'id': shop.id}) }}">Editer</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
