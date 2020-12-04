@@ -63,7 +63,7 @@ class ShopController extends AbstractController
     {
         return $this->render('shop/show.html.twig', [
             'shop' => $shop,
-            'products' => $productRepository->findBy(['shop' => $shop->getId()]),
+            'products' => $productRepository->findAllInStock($shop->getId()),
         ]);
     }
 

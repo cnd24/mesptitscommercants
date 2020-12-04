@@ -19,6 +19,17 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+
+    public function findAllInStock($id)
+    {
+        return $this->createQueryBuilder('p')
+                ->andWhere('p.shop = :id')
+                ->setParameter('id', $id)
+                ->andWhere('p.in_stock = 1')
+                ->getQuery()
+                ->getResult();
+    }
+
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */

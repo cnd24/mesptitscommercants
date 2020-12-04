@@ -43,6 +43,21 @@ class Product
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $in_stock;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
+
+    public function __construct()
+    {
+        $this->created_at = new \DateTime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +119,30 @@ class Product
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getInStock(): ?bool
+    {
+        return $this->in_stock;
+    }
+
+    public function setInStock(bool $in_stock): self
+    {
+        $this->in_stock = $in_stock;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }
