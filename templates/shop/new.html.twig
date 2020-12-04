@@ -3,9 +3,16 @@
 {% block title %}Nouveau commerce{% endblock %}
 
 {% block body %}
-    <h1>Create new Shop</h1>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="d-flex flex-column">
+                <h1>Create new Shop</h1>
+                {{ include('shop/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 
-    {{ include('shop/_form.html.twig') }}
+
 
     <a href="{{ path('shop') }}">back to list</a>
 {% endblock %}
