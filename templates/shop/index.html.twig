@@ -12,7 +12,7 @@
                     <div class="d-flex justify-content-center col-12 col-sm-12 col-md-6 col-xl-4 mb-5" style="height: 40vh">
                             <div class="card mh-30">
                                 <div class="h-50">
-                                    <a href="{{ path('shop_show', {'id': shop.id}) }}">
+                                    <a href="{{ path('shop_show', {'id': shop.id, 'slug': shop.slug}) }}">
                                         <img src="{{ shop.picture }}" class="img-card card-img-top mh-100" alt="Photo de la boutique">
                                     </a>
                                 </div>

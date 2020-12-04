@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ShopRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -76,6 +77,12 @@ class Shop
         $this->name = $name;
 
         return $this;
+    }
+
+    public function getSlug(): string
+    {
+        $slugify = new Slugify();
+        return $slugify->slugify($this->name);
     }
 
     public function getAdress(): ?string

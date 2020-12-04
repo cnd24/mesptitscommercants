@@ -57,10 +57,16 @@ class ShopController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="shop_show", methods={"GET"})
+     * @Route("/{id}-{slug}", name="shop_show", methods={"GET"}, requirements={"slug": "[a-z0-9\-]*"})
      */
-    public function show(Shop $shop, ProductRepository $productRepository): Response
+    public function show(Shop $shop, ProductRepository $productRepository, string $slug): Response
     {
+        if ($shop->getSlug() !== $slug) {
+            return $this->redirectToRoute('shop_show', [
+                'id' => $shop->getId(),
+                'slug' => $shop->getSlug()
+            ], 301);
+        }
         return $this->render('shop/show.html.twig', [
             'shop' => $shop,
             'products' => $productRepository->findAllInStock($shop->getId()),
