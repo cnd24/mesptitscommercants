@@ -36,7 +36,7 @@ class Shop
     private $phoneNumber;
 
     /**
-     * @ORM\ManyToMany(targetEntity=ShopCategory::class, mappedBy="shops")
+     * @ORM\ManyToMany(targetEntity=ShopCategory::class, inversedBy="shops")
      */
     private $shopCategories;
 

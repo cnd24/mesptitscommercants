@@ -25,7 +25,7 @@ class ShopCategory
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Shop::class, inversedBy="shopCategories")
+     * @ORM\ManyToMany(targetEntity=Shop::class, mappedBy="shopCategories")
      */
     private $shops;
 
