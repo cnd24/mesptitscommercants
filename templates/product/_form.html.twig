@@ -1,4 +1,17 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    <div class="row">
+        <div class="col-md-12">{{ form_row(form.name) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">{{ form_row(form.description) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">{{ form_row(form.picture) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.price) }}</div>
+        <div class="col-md-6">{{ form_row(form.inStock) }}</div>
+    </div>
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

@@ -15,10 +15,18 @@ class ShopType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('adress', TextType::class)
-            ->add('phoneNumber', TextType::class)
-            ->add('picture', TextType::class);
+            ->add('name', TextType::class, [
+                'label' => 'Nom'
+            ])
+            ->add('adress', TextType::class, [
+                'label' => 'Adresse'
+            ])
+            ->add('phoneNumber', TextType::class, [
+                'label' => 'Numéro de téléphone'
+            ])
+            ->add('picture', TextType::class, [
+                'label' => 'Photo'
+            ]);
 //            ->add('shopCategories', EntityType::class, [
 //                    'class' => ShopCategory::class,
 //                    'choice_label' => 'name',
@@ -31,6 +39,7 @@ class ShopType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Shop::class,
+            'csrf_protection' => false,
         ]);
     }
 }
