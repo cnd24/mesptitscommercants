@@ -34,7 +34,7 @@ class ShopFixtures extends Fixture
         for($i=0; $i<50; $i++){
             $shop = new Shop();
             $shop->setName($faker->company);
-            $shop->setPhoneNumber($faker->phoneNumber);
+            $shop->setPhoneNumber(rand(0100000000, 9999999999));
             $shop->setAdress($faker->address);
             $shop->setPicture(self::FACTICE_IMAGES[rand(0, count(self::FACTICE_IMAGES)-1)]);
             $shop->addShopCategory($this->getReference('category_shop'.rand(0, count(CategoryShopFixtures::CATEGORY_SHOP)-1)));

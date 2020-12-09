@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -19,17 +20,21 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max=255)
      */
     private $name;
 
     /**
      * @ORM\ManyToOne(targetEntity=Shop::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $shop;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
+     * @Assert\NotBlank
+     * @Assert\Type("float")
      */
     private $price;
 
@@ -45,11 +50,14 @@ class Product
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\NotBlank
+     * @Assert\Type("bool")
      */
     private $in_stock;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\DateTime()
      */
     private $created_at;
 

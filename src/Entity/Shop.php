@@ -7,6 +7,7 @@ use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ShopRepository::class)
@@ -22,16 +23,22 @@ class Shop
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Type("string")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Type("string")
      */
     private $adress;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=10, nullable=true)
+     * @Assert\Length(min = 10, max = 10)
+     * @Assert\Regex(pattern="/^[0-9]{10}$/")
+     * @Assert\Type("numeric")
      */
     private $phoneNumber;
 
@@ -52,6 +59,7 @@ class Shop
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\DateTime()
      */
     private $created_at;
 

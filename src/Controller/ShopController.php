@@ -23,7 +23,7 @@ class ShopController extends AbstractController
     public function index(ShopRepository $shopRepository): Response
     {
         //$geoApi->getCity();
-        $shops = $shopRepository->findAll();
+        $shops = $shopRepository->findBy([], ['name' => 'ASC']);
 
         return $this->render('shop/index.html.twig', [
             'shops' => $shops,
@@ -46,6 +46,7 @@ class ShopController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($shop);
             $entityManager->flush();
+            $this->addFlash('success', 'Commerce créé avec succès');
 
             return $this->redirectToRoute('shop');
         }
