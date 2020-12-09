@@ -22,8 +22,8 @@ class UserFixtures extends Fixture
         $faker = Faker\Factory::create('fr_FR');
 
         $user = new User();
-        $user->setEmail($faker->email);
-        $user->setPassword($this->passwordEncoder->encodePassword($user, 'demo'));
+        $user->setEmail('admin@admin.fr');
+        $user->setPassword($this->passwordEncoder->encodePassword($user, 'admin'));
         $manager->persist($user);
 
         $manager->flush();
