@@ -31,7 +31,7 @@ class ShopFixtures extends Fixture
 
         $counter = 1;
 
-        for($i=0; $i<50; $i++){
+        for($i=0; $i<10; $i++){
             $shop = new Shop();
             $shop->setName($faker->company);
             $shop->setPhoneNumber(rand(0100000000, 9999999999));

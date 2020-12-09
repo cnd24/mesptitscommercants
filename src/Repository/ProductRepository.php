@@ -20,14 +20,13 @@ class ProductRepository extends ServiceEntityRepository
     }
 
 
-    public function findAllInStock($id)
+    public function findAllInStock($id): \Doctrine\ORM\Query
     {
         return $this->createQueryBuilder('p')
                 ->andWhere('p.shop = :id')
                 ->setParameter('id', $id)
                 ->andWhere('p.in_stock = 1')
-                ->getQuery()
-                ->getResult();
+                ->getQuery();
     }
 
     // /**

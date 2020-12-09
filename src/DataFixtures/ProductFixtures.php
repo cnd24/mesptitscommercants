@@ -34,7 +34,7 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
             $product->setDescription($faker->sentence());
             $product->setPrice(rand(10,50));
             $product->setInStock($faker->boolean(90));
-            $product->setShop($this->getReference('shop'.rand(1,50)));
+            $product->setShop($this->getReference('shop'.rand(1,10)));
             $manager->persist($product);
         }
 

@@ -3,10 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Shop;
+use App\Form\SearchType;
 use App\Form\ShopType;
 use App\Repository\ProductRepository;
+use App\Repository\ShopCategoryRepository;
 use App\Repository\ShopRepository;
 use App\Services\GeoApi;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,13 +23,19 @@ class ShopController extends AbstractController
     /**
      * @Route("/", name="shop", methods={"GET"})
      */
-    public function index(ShopRepository $shopRepository): Response
+    public function index(ShopRepository $shopRepository, ShopCategoryRepository $categories, Request $request): Response
     {
         //$geoApi->getCity();
         $shops = $shopRepository->findBy([], ['name' => 'ASC']);
+        //TODO : effectuer une recherche par catégorie
+        $form = $this->createForm(SearchType::class);
+        $form->handleRequest($request);
+
+        //$shops = $shopRepository->findBySearch();
 
         return $this->render('shop/index.html.twig', [
             'shops' => $shops,
+            'form' => $form->createView(),
         ]);
     }
 
@@ -60,7 +69,12 @@ class ShopController extends AbstractController
     /**
      * @Route("/{id}-{slug}", name="shop_show", methods={"GET"}, requirements={"slug": "[a-z0-9\-]*"})
      */
-    public function show(Shop $shop, ProductRepository $productRepository, string $slug): Response
+    public function show(
+        Shop $shop,
+        ProductRepository $productRepository,
+        string $slug,
+        PaginatorInterface $paginator,
+        Request $request): Response
     {
         if ($shop->getSlug() !== $slug) {
             return $this->redirectToRoute('shop_show', [
@@ -68,9 +82,16 @@ class ShopController extends AbstractController
                 'slug' => $shop->getSlug()
             ], 301);
         }
+
+        $products = $paginator->paginate(
+            $productRepository->findAllInStock($shop->getId()),
+            $request->query->getInt('page', 1),
+            6
+        );
+
         return $this->render('shop/show.html.twig', [
             'shop' => $shop,
-            'products' => $productRepository->findAllInStock($shop->getId()),
+            'products' => $products,
         ]);
     }
 
