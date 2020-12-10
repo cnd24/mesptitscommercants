@@ -29,7 +29,7 @@ class ShopRepository extends ServiceEntityRepository
          $query = $this->createQueryBuilder('s')
                 ->orderBy('s.name', 'ASC');
 
-         if(!empty($data) && $data['category']->getId()!=null){
+         if(!empty($data) && $data['category']!=null){
              $query->leftJoin('s.shopCategories', 'c')
                  ->andWhere('c.id = :category')
                  ->setParameter('category', $data['category']->getId());
