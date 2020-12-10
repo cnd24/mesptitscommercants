@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Data\SearchData;
 use App\Entity\Shop;
+use App\Entity\ShopCategory;
 use App\Form\SearchType;
 use App\Form\ShopType;
 use App\Repository\ProductRepository;
@@ -23,15 +25,21 @@ class ShopController extends AbstractController
     /**
      * @Route("/", name="shop", methods={"GET"})
      */
-    public function index(ShopRepository $shopRepository, ShopCategoryRepository $categories, Request $request): Response
+    public function index(ShopRepository $shopRepository, Request $request): Response
     {
         //$geoApi->getCity();
-        $shops = $shopRepository->findBy([], ['name' => 'ASC']);
         //TODO : effectuer une recherche par catégorie
+
+        $data = [];
         $form = $this->createForm(SearchType::class);
         $form->handleRequest($request);
 
-        //$shops = $shopRepository->findBySearch();
+        if($form->isSubmitted()){
+            $data = $form->getData();
+        }
+
+
+        $shops = $shopRepository->findBySearch($data);
 
         return $this->render('shop/index.html.twig', [
             'shops' => $shops,

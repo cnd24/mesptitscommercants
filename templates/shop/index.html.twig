@@ -14,8 +14,9 @@
 
             <div class="container">
                 {{ form_start(form) }}
-                    <div class="row">
-                        <div class="col-md-6 mb-5">{{ form_row(form.category) }}</div>
+                    <div class="row mb-5">
+                        <div class="col-md-6">{{ form_row(form.category) }}</div>
+                        <button type="submit" class="">Filtrer</button>
                     </div>
                 {{ form_end(form) }}
 

@@ -19,6 +19,25 @@ class ShopRepository extends ServiceEntityRepository
         parent::__construct($registry, Shop::class);
     }
 
+    /**
+     * @param array|null $data
+     * @return Shop[] Returns an array of Shop objects
+     */
+
+    public function findBySearch(?array $data):array
+    {
+         $query = $this->createQueryBuilder('s')
+                ->orderBy('s.name', 'ASC');
+
+         if(!empty($data) && $data['category']->getId()!=null){
+             $query->leftJoin('s.shopCategories', 'c')
+                 ->andWhere('c.id = :category')
+                 ->setParameter('category', $data['category']->getId());
+         }
+         return $query->getQuery()->getResult();
+    }
+
+
     // /**
     //  * @return Shop[] Returns an array of Shop objects
     //  */
