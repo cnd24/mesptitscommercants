@@ -52,6 +52,12 @@ class Shop
 
     /**
      * @Vich\UploadableField(mapping="shops_image", fileNameProperty="imageName")
+     * @Assert\File(
+     *     maxSize = "2000k",
+     *     maxSizeMessage="La taille des images est limité à {{ limit }} {{ suffix }}",
+     *     mimeTypes = {"image/jpeg", "image/png", "image/webp", "image/gif"},
+     *     mimeTypesMessage = "Ce n'est pas un format d'image valide"
+     * )
      * @var File|null
      */
     private $imageFile;
@@ -93,7 +99,7 @@ class Shop
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\DateTime()
+     * @Assert\Type("\DateTimeInterface")
      */
     private $created_at;
 
