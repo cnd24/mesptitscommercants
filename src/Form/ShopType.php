@@ -6,7 +6,7 @@ use App\Entity\Shop;
 use App\Entity\ShopCategory;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,8 +25,8 @@ class ShopType extends AbstractType
             ->add('phoneNumber', TextType::class, [
                 'label' => 'Numéro de téléphone'
             ])
-            ->add('picture', TextType::class, [
-                'label' => 'Photo'
+            ->add('imageFile', FileType::class, [
+                'required' => false
             ])
             ->add('shopCategories', EntityType::class, [
                     'class' => ShopCategory::class,

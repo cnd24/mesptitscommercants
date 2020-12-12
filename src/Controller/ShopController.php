@@ -28,7 +28,6 @@ class ShopController extends AbstractController
     public function index(ShopRepository $shopRepository, Request $request): Response
     {
         //$geoApi->getCity();
-        //TODO : effectuer une recherche par catégorie
 
         $data = [];
         $form = $this->createForm(SearchType::class);

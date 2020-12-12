@@ -17,6 +17,7 @@ class SearchType extends AbstractType
             ->add('category', EntityType::class, [
                 'class' => ShopCategory::class,
                 'choice_label' => 'name',
+                'choice_value' => 'name',
                 'required' => false,
                 'label' => false,
                 'placeholder' => 'Catégorie',
@@ -34,5 +35,10 @@ class SearchType extends AbstractType
             'method' => 'GET',
             'csrf_protection' => false,
         ]);
+    }
+
+    public function getBlockPrefix()
+    {
+        return '';
     }
 }
